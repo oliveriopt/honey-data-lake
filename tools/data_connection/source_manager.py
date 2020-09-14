@@ -1,17 +1,16 @@
 #!/usr/bin/env python3
-import pymysql
 import logging
 import warnings
 import sys
 import psycopg2
 
 logger = logging.getLogger()
-warnings.filterwarnings("ignore", category=psycopg2.Warning)
+#warnings.filterwarnings("ignore", category=psycopg2.Warning)
 
 
 class Connector:
 
-    def __init__(self, user: str, pw: str, host: str, port=3306, database: str = None):
+    def __init__(self, user: str, pw: str, host: str, port:str, database: str):
         assert user, "Database <user> is not set."
         assert host, "Database <host> is not set."
         assert port, "Database <port> is not set."
@@ -39,10 +38,11 @@ class Connector:
         try:
             if self.__database:
                 self.__conn = psycopg2.connect(host=self.__host, port=self.__port,
-                                              user=self.__user, passwd=self.__password, db=self.__database)
+                                               user=self.__user, password=self.__password, dbname=self.__database)
             else:
                 self.__conn = psycopg2.connect(host=self.__host, port=self.__port,
-                                              user=self.__user, passwd=self.__password)
+                                               user=self.__user, password=self.__password)
+            print("Connection to server successful!")
             logger.info(msg="Connection to server successful!")
         except Exception as e:
             logger.error(msg="Error connecting to database:  %s" % e)
