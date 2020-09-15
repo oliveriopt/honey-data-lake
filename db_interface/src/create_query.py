@@ -47,9 +47,3 @@ class BuildInjectQuery:
             return BuildInjectQuery.function_insert(q, values, table, i + 1)
         else:
             return q
-
-
-table = 'language_identification'
-list_values = [("0", "ES", "FR", "DE", "EN"), ("1", "EN", "DE", "FR", "ES")]
-build = BuildInjectQuery
-print(build.build_query_insert(table, True, list_values))

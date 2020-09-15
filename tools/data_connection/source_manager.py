@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 import logging
-import warnings
 import sys
 import psycopg2
 
