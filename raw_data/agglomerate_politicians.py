@@ -61,13 +61,13 @@ def extract_information(list_polit: list, list_states: list) -> list:
 
 
 def export_csv(list_politians: list) -> None:
-    with open("polititians/politians_usa.csv", "w+") as f:
+    with open("politicians/politicians_usa.csv", "w+") as f:
         writer = csv.writer(f)
         writer.writerows(list_politians)
 
 
-list_polit = read_file('polititians/polititians.txt')
-list_states = read_file('polititians/list_states.csv')
+list_polit = read_file('politicians/politicians.txt')
+list_states = read_file('politicians/list_states.csv')
 list_states = convert_states(list_states)
 list_congressmann = extract_information(list_polit, list_states)
 export_csv(list_congressmann)
