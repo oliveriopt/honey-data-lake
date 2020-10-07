@@ -1,7 +1,8 @@
 from datetime import date
 
 import pandas as pd
-
+import warnings
+warnings.simplefilter(action='ignore', category=FutureWarning)
 
 def read_file(file: str) -> pd.DataFrame:
     """
@@ -50,6 +51,9 @@ def clean_information(df_players: pd.DataFrame, states_code: dict) -> pd.DataFra
     """
     df_players['city'], df_players['state_code'] = df_players['Birth Place'].str.split(' , ', 1).str
     df_players = df_players.replace({"state_code": states_code})
+    df_players['last_name'], df_players['first_name'] = df_players['Name'].str.split(', ', 1).str
+    df_players = df_players[["first_name","last_name","state_code"]]
+    df_players = df_players.apply(lambda x: x.astype(str).str.lower())
     return df_players
 
 
@@ -66,3 +70,4 @@ df_players = read_file('nfl/Basic_Stats.csv')
 dict_states = read_file_convert_dict('nfl/code_states.csv')
 df_players = select_information(df_players)
 df_players = clean_information(df_players, dict_states)
+write_csv("nfl/players_usa.csv", df_players)
