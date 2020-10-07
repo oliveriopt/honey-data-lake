@@ -1,3 +1,54 @@
+first_name,last_name,state
+Ivey,Kay,Alabama
+Dunleavy,Mike,Alaska
+Ducey,Douglas,Arizona
+Hutchinson,Asa,Arkansas
+Newsom,Gavin,California
+Polis,Jared,Colorado
+Lamont,Edward,Connecticut
+Carney,John,Delaware
+DeSantis,Ronald,Florida
+Kemp,Brian,Georgia
+Ige,David,Hawaii
+Little,Brad,Idaho
+Pritzker,J.B.,Illinois
+Holcomb,Eric,Indiana
+Reynolds,Kimberly,Iowa
+Kelly,Laura,Kansas
+Bevin,Matthew,Kentucky
+Edwards,John,Louisiana
+Mills,Janet,Maine
+Hogan,Lawrence,Maryland
+Baker,Charles,Massachusetts
+Whitmer,Gretchen,Michigan
+Walz,Tim,Minnesota
+Bryant,Dewey,Mississippi
+Parson,Michael,Missouri
+Bullock,Stephen,Montana
+Ricketts,John,Nebraska
+Sisolak,Steve,Nevada
+Sununu,Christopher,New Hampshire
+Murphy,Philip,New Jersey
+Lujan Grisham,Michelle,New Mexico
+Cuomo,Andrew,New York
+Cooper,Roy,North Carolina
+Burgum,Douglas,North Dakota
+DeWine,Michael,Ohio
+Stitt,Kevin,Oklahoma
+Brown,Katherine,Oregon
+Wolf,Thomas,Pennsylvania
+Raimondo,Gina,Rhode Island
+McMaster,Henry,South Carolina
+Noem,Kristi,South Dakota
+Lee,Bill,Tennessee
+Abbott,Gregory,Texas
+Herbert,Gary,Utah
+Scott,Philip,Vermont
+Northam,Ralph,Virginia
+Inslee,Jay,Washington
+Justice,James,West Virginia
+Evers,Tony,Wisconsin
+Gordon,Mark,Wyoming
 abraham,ralph,louisiana
 adams,alma,north carolina
 aderholt,robert,alabama
@@ -60,7 +111,6 @@ butterfield,george“g.k.”,north carolina
 byrne,bradley,alabama
 calvert,ken,california
 cantwell,maria,washington
-capito,shelley,virginia
 capito,shelley,virginia
 carbajal,salud,california
 cardin,benjamin,maryland
@@ -303,7 +353,6 @@ malinowski,tom,new jersey
 maloney,carolyn,new york
 maloney,sean,new york
 manchin,joe,virginia
-manchin,joe,virginia
 marchant,kenny,texas
 markey,edward“ed”,massachusetts
 marshall,roger,kansas
@@ -321,7 +370,6 @@ mceachin,donald,virginia
 mcgovern,james“jim”,massachusetts
 mchenry,patrick,north carolina
 mckinley,david,virginia
-mckinley,david,virginia
 mcmorrisrodgers,cathy,washington
 mcnerney,jerry,california
 mcsally,martha,arizona
@@ -332,10 +380,8 @@ merkley,jeff,oregon
 meuser,daniel,pennsylvania
 mfume,kweisi,maryland
 miller,carol,virginia
-miller,carol,virginia
 mitchell,paul,michigan
 moolenaar,john,michigan
-mooney,alex,virginia
 mooney,alex,virginia
 moore,gwen,wisconsin
 moran,jerry,kansas
