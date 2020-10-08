@@ -100,7 +100,6 @@ list_states = convert_states(list_states)
 list_congressmann = extract_information(list_polit, list_states)
 list_governors = read_file_governors('politicians/governors.txt')
 list_governors = select_data(list_governors)
-list_mayors =
 list_policians = merge_data(list_governors, list_congressmann)
 export_csv(list_policians)
 # print
