@@ -1,12 +1,14 @@
 from googlesearch import search
+from GoogleNews import GoogleNews
+import google_search.src.cons_google_search as cons
 
 
 class GoogleSearch:
-    def __init__(self, query: str, tld: str, lang: str, num=int):
+    def __init__(self, query: str, tld: str):
         self.query = query
         self.tld = tld  # The top level domain
-        self.lang = lang  # The language
-        self.num = num  # Number of results per page
+        self.lang = cons.lang  # The language
+        self.num = cons.num  # Number of results per page
         self.start = 0  # First result to retrieve
         self.stop = 40  # Last result to retrieve
         self.pause = 2.0
@@ -18,18 +20,44 @@ class GoogleSearch:
         :return:
         """
 
-        for i in search(query,  # The query you want to run
-                        tld=self.tld,  # The top level domain
-                        lang=self.lang,  # The language
-                        num=self.num,  # Number of results per page
-                        start=self.start,  # First result to retrieve
-                        stop=self.stop,  # Last result to retrieve
-                        pause=self.pause,  # Lapse between HTTP requests
+        for i in search(query,
+                        tld=self.tld,
+                        lang=self.lang,
+                        num=self.num,
+                        start=self.start,
+                        stop=self.stop,
+                        pause=self.pause,
                         ):
             print(i)
             self.result.append(i)
 
 
-query = "politians texas"
-goo = GoogleSearch(query, 'com', 'en', 20)
-goo.google_search()
+class GoogleNewsSearch:
+
+    def __init__(self, query: str):
+        self.googlenews = GoogleNews()
+        print(self.googlenews)
+        self.googlenews.setlang(cons.lang)
+        self.googlenews.setperiod(cons.period)
+        self.googlenews.setTimeRange(cons.start_date, cons.end_date)
+        self.googlenews.setencode(cons.decode)
+        self.number_page = cons.number_page
+        self.query = query
+        self.result = []
+
+    def search_news(self) -> list:
+        """
+        Runing search news
+        :return:
+        """
+        print(self.query)
+        self.googlenews.search(self.query)
+        self.googlenews.getpage(self.number_page)
+        self.result = self.googlenews.result()
+        self.googlenews.clear()
+
+
+query = "wexton,jennifer,virginia"
+news = GoogleNewsSearch(query=query)
+news.search_news()
+print(news.result)
