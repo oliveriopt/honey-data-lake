@@ -1,6 +1,6 @@
 from googlesearch import search
 from GoogleNews import GoogleNews
-import google_search.src.cons_google_search as cons
+import search_and_scrape.src.cons_google_search as cons
 
 
 class GoogleSearch:

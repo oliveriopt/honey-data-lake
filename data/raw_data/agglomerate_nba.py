@@ -1,7 +1,11 @@
 from datetime import date
 
 import pandas as pd
+import numpy as np
 import warnings
+pd.set_option('display.max_rows', 500)
+pd.set_option('display.max_columns', 500)
+pd.set_option('display.width', 1000)
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
 def read_file(file: str) -> pd.DataFrame:
@@ -43,6 +47,17 @@ def select_information(df_players: pd.DataFrame,dict_teams:dict) -> pd.DataFrame
     df_players = df_players[["first_name","last_name","team_abbreviation"]]
     df_players.rename({'team_abbreviation': 'state'}, axis=1, inplace=True)
     df_players = df_players.apply(lambda x: x.astype(str).str.lower())
+    df_players["middle_name"] = np.nan
+    df_players["country"] = "united states"
+    df_players["continent"] = "america"
+    df_players["lang_primar"] = "en"
+    df_players["lang_secondary"] = np.nan
+    df_players["lang_tertiary"] = np.nan
+    df_players["lang_quaternary"] = np.nan
+    df_players["search_engine"] = np.nan
+    df_players["link"] = np.nan
+    df_players["category"] = "nba_players"
+    df_players = df_players.apply(lambda x: x.astype(str).str.lower())
     return df_players
 
 def write_csv(path: str, df_players: pd.DataFrame) -> None:
@@ -55,7 +70,7 @@ def write_csv(path: str, df_players: pd.DataFrame) -> None:
 
 df_players = read_file('nba/nba_players_1.csv')
 dict_teams = read_file_convert_dict('nba/teams_code.csv')
-print(dict_teams)
+#print(dict_teams)
 df_players = select_information(df_players,dict_teams)
-write_csv("nba/players_usa.csv", df_players)
+write_csv("../clean_data/nba_players_usa.csv", df_players)
 print(df_players)

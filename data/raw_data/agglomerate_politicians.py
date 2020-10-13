@@ -1,6 +1,10 @@
 import csv
 import pandas as pd
+import numpy as np
 
+pd.set_option('display.max_rows', 500)
+pd.set_option('display.max_columns', 500)
+pd.set_option('display.width', 1000)
 
 def read_file(path_file: str) -> list:
     """
@@ -16,7 +20,7 @@ def read_file(path_file: str) -> list:
     return list_items
 
 
-def read_file_governors(file:str):
+def read_file_governors(file: str):
     """
     REad file governos
     :return:
@@ -70,12 +74,6 @@ def extract_information(list_polit: list, list_states: list) -> list:
     return items
 
 
-def export_csv(list_politians: list) -> None:
-    with open("politicians/politicians_usa.csv", "w+") as f:
-        writer = csv.writer(f)
-        writer.writerows(list_politians)
-
-
 def select_data(gov: pd.DataFrame) -> pd.DataFrame:
     """
     Select data
@@ -93,6 +91,32 @@ def merge_data(gov: pd.DataFrame, polit: pd.DataFrame) -> list:
     [res.append(x) for x in gov if x not in res]
     return res
 
+
+def improve_dataframe(list_politicians: list) -> pd.DataFrame:
+    df = pd.DataFrame(list_politicians, columns=['first_name', 'last_name', 'state',"none"])
+    del df["none"]
+    df["middle_name"] = np.nan
+    df["country"] = "united states"
+    df["continent"] = "america"
+    df["lang_primar"] = "en"
+    df["lang_secondary"] = np.nan
+    df["lang_tertiary"] = np.nan
+    df["lang_quaternary"] = np.nan
+    df["search_engine"] = np.nan
+    df["link"] = np.nan
+    df["category"] = "politicians"
+    df = df.apply(lambda x: x.astype(str).str.lower())
+    return df
+
+def write_csv(path: str, df: pd.DataFrame) -> None:
+    """
+    Write dataframe to csv file
+    :param path:
+    :return:
+    """
+    df.to_csv(path, index=False, header=True)
+
+
 list_polit = read_file('politicians/politicians.txt')
 list_states = read_file('politicians/list_states.csv')
 
@@ -101,5 +125,6 @@ list_congressmann = extract_information(list_polit, list_states)
 list_governors = read_file_governors('politicians/governors.txt')
 list_governors = select_data(list_governors)
 list_policians = merge_data(list_governors, list_congressmann)
-export_csv(list_policians)
+df = improve_dataframe(list_policians)
+write_csv('../clean_data/politicians_usa.csv', df)
 # print
