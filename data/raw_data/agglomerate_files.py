@@ -18,15 +18,17 @@ def write_csv(path: str, df: pd.DataFrame) -> None:
     :param path:
     :return:
     """
-    df.to_csv(path, index=False, header=True)
+    df.to_csv(path, index=False, header=True, na_rep='None')
 
 df = read_file('../clean_data/politicians_usa.csv')
 df1 = read_file('../clean_data/nba_players_usa.csv')
 df2 = read_file('../clean_data/nfl_players_usa.csv')
 df3 = read_file('../clean_data/football_players_usa.csv')
 
+
+
 result = pd.concat([df, df1, df2, df3])
-write_csv('../normalization_data/personas.csv', result)
+write_csv('../data_normalization/personas_source.csv', result)
 
 print(result.head())
 print(result.shape)

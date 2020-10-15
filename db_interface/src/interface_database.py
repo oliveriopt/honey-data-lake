@@ -26,3 +26,4 @@ class InterfaceDatabase:
         """
         build = BuildInjectQuery()
         self.query = build.build_query_insert(table=self.table, key_duplicate=True, list_values=self.list_values)
+

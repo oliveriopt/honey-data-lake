@@ -1,6 +1,6 @@
 import logging
 
-from pypika import Table
+from pypika import Table, Tables
 from pypika import PostgreSQLQuery
 
 logger = logging.getLogger()
@@ -24,10 +24,10 @@ class BuildInjectQuery:
 
         q = BuildInjectQuery.function_insert(PostgreSQLQuery.into(table).insert(values_table[0]), values_table, table,
                                              0)
-        print(type(q))
         if key_duplicate:
             q = q.on_conflict(table.id).do_nothing()
-
+        q = str(q).replace("nan,", "NULL,", 999999999999)
+        q = q.replace("nan)", "NULL)", 999999999999)
         return str(q)
 
     @staticmethod
@@ -48,3 +48,11 @@ class BuildInjectQuery:
             return BuildInjectQuery.function_insert(q, values, table, i + 1)
         else:
             return q
+
+    @staticmethod
+    def build_query_select(table, table_join):
+        table, table_j = Tables(table, table_join)
+        if (table_join == "geographic_zone"):
+            q = PostgreSQLQuery.from_(table).join(table_j).on(table.geographic_zone_id == table_j.id).select( \
+                'id', 'first_name', "middle_name", "last_name", "state", "country", "continent")
+        print(str(q))
