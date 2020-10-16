@@ -18,12 +18,13 @@ class ExtractTextNews:
         article = Article(self.url, self.lang)
         article.download()
         article.parse()
-        self.text = repr(article.text)
+        self.text = (article.text)
 
 
 url = "https://thehill.com/homenews/campaign/415221-james-comey-knocks-on-door-for-democrat-jennifer-wexton"
 url2 = "https://www.businessinsider.com/democrat-jennifer-wexton-unseats-barbara-comstock-in-virginia-2018-11"
+url3 = "https://www.ft.com/content/93cffd8f-84ce-4160-a22e-b7d168620875"
 
-scrap = ExtractTextNews(url=url2)
+scrap = ExtractTextNews(url=url3)
 scrap.scrap_news()
 print(scrap.text)

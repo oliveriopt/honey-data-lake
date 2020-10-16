@@ -66,7 +66,7 @@ class Connector:
 
     def insert_query(self, query: str) -> int:
         """
-        Executes a INSERT query
+        Executes a INSERT/UPDATE query
         :param query:
         :return: affected rows
         """
@@ -78,4 +78,4 @@ class Connector:
 
         except Exception as e:
             logger.error(msg="Error executing insert query: %s" % e)
-            raise Exception('Not able to execute the select query %s : %s' % (query, e))
+            raise Exception('Not able to execute the insert/update query %s : %s' % (query, e))
