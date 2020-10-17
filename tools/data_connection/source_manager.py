@@ -64,7 +64,7 @@ class Connector:
 
         return result
 
-    def insert_query(self, query: str) -> int:
+    def insert_update_query(self, query: str) -> int:
         """
         Executes a INSERT/UPDATE query
         :param query:

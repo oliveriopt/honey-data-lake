@@ -55,4 +55,5 @@ class BuildInjectQuery:
         if (table_join == "geographic_zone"):
             q = PostgreSQLQuery.from_(table).join(table_j).on(table.geographic_zone_id == table_j.id).select( \
                 'id', 'first_name', "middle_name", "last_name", "state", "country", "continent")
-        print(str(q))
+
+

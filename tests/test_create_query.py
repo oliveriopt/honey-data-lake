@@ -1,7 +1,5 @@
-import db_interface.src.cons_database as cons
-
 from unittest import TestCase
-from db_interface.src.create_query import BuildInjectQuery
+from src.db_interface import BuildInjectQuery
 from pypika import PostgreSQLQuery
 
 class TestBuildInjectQuery(TestCase):

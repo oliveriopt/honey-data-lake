@@ -1,6 +1,6 @@
 from googlesearch import search
 from GoogleNews import GoogleNews
-import search_and_scrape.src.cons_google_search as cons
+import src.search_and_scrape.cons_google_search as cons
 
 
 class GoogleSearch:
@@ -55,9 +55,3 @@ class GoogleNewsSearch:
         self.googlenews.getpage(self.number_page)
         self.result = self.googlenews.result()
         self.googlenews.clear()
-
-
-query = "wexton,jennifer,virginia"
-news = GoogleNewsSearch(query=query)
-news.search_news()
-print(news.result)

@@ -1,14 +1,17 @@
 from tools.data_connection.source_manager import Connector
-from db_interface.src.create_query import BuildInjectQuery
+from src.db_interface.create_query import BuildInjectQuery
 
 
 class InterfaceDatabase:
 
-    def __init__(self, connector: Connector, table: str, list_values: list):
+    def __init__(self, connector: Connector, table: str or None, list_values: list or None, select_table: str or None,
+                 select_join_table: str or None):
         self.conn = connector
         self.table = table
         self.list_values = list_values
         self.query = ""
+        self.select_table = select_table
+        self.select_join_table = select_join_table
 
     def connect_database(self):
         """
@@ -27,3 +30,6 @@ class InterfaceDatabase:
         build = BuildInjectQuery()
         self.query = build.build_query_insert(table=self.table, key_duplicate=True, list_values=self.list_values)
 
+    def create_select_query(self):
+        build = BuildInjectQuery()
+        self.query = build.build_query_select(self.select_table, self.select_join_table)
