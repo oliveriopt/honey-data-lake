@@ -14,14 +14,14 @@ class SelectInsertUpdateDataSQL:
     """
 
     def __init__(self, path_file: str or None, insert_table: str or None, insert_values: list or None, select_table:
-    str or
-                                                                                                             None,
-                 select_join_table: str or None):
+    str or None, select_table_join: str or None, select_table_join_2: str or None, select_table_join_3: str or None):
         self.path_file = path_file
         self.insert_table = insert_table
         self.insert_values = insert_values
         self.select_table = select_table
-        self.select_join_table = select_join_table
+        self.select_table_join = select_table_join
+        self.select_table_join_2 = select_table_join_2
+        self.select_table_join_3 = select_table_join_3
         self.conn_db = Connector(user=cons.user, pw=cons.pwd, host=cons.host, port=cons.port, database=cons.database)
 
     def __read_csv_file(self) -> None:
@@ -32,7 +32,6 @@ class SelectInsertUpdateDataSQL:
         df = pd.read_csv(self.path_file, index_col=0)
         records = df.to_records(index=True)
         self.insert_values = list(records)
-        print(self.insert_values)
 
     def __connect_insert_query(self) -> None:
         """
@@ -42,7 +41,8 @@ class SelectInsertUpdateDataSQL:
         """
         db_interface = InterfaceDatabase(connector=self.conn_db, table=self.insert_table,
                                          list_values=self.insert_values,
-                                         select_table=None, select_join_table=None)
+                                         select_table=None, select_table_join=None, select_table_join_2=None,
+                                         select_table_join_3=None)
         db_interface.connect_database()
         db_interface.create_insert_query()
         self.conn_db.insert_update_query(db_interface.query)
@@ -55,7 +55,9 @@ class SelectInsertUpdateDataSQL:
         :return:
         """
         db_interface = InterfaceDatabase(connector=self.conn_db, table=None, list_values=None,
-                                         select_table=self.select_table, select_join_table=self.select_join_table)
+                                         select_table=self.select_table, select_table_join=self.select_table_join,
+                                         select_table_join_2=self.select_table_join_2,
+                                         select_table_join_3=self.select_table_join_3)
         db_interface.connect_database()
         db_interface.create_select_query()
         return self.conn_db.select_query(db_interface.query)
@@ -79,9 +81,9 @@ class SelectInsertUpdateDataSQL:
         """
         self.__connect_insert_query()
 
-    def process_select_query(self) -> None:
+    def process_select_query(self) -> tuple:
         """
         Process select query
         :return:
         """
-        self.__connect_select_query()
+        return self.__connect_select_query()

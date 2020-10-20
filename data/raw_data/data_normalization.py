@@ -109,7 +109,6 @@ write_list('../data_normalization/geographic_zone.csv', geo)
 write_list('../data_normalization/language.csv', lang)
 
 df_personas = df_personas[["first_name","middle_name","last_name","language_id","geographic_zone_id","category_id"]]
-df_personas["source_id"] = np.nan
 
 write_list('../data_normalization/persona.csv', df_personas)
 

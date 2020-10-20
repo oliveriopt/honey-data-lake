@@ -5,13 +5,15 @@ from src.db_interface.create_query import BuildInjectQuery
 class InterfaceDatabase:
 
     def __init__(self, connector: Connector, table: str or None, list_values: list or None, select_table: str or None,
-                 select_join_table: str or None):
+                 select_table_join: str or None, select_table_join_2: str or None, select_table_join_3: str or None):
         self.conn = connector
         self.table = table
         self.list_values = list_values
         self.query = ""
         self.select_table = select_table
-        self.select_join_table = select_join_table
+        self.select_table_join = select_table_join
+        self.select_table_join_2 = select_table_join_2
+        self.select_table_join_3 = select_table_join_3
 
     def connect_database(self):
         """
@@ -32,4 +34,5 @@ class InterfaceDatabase:
 
     def create_select_query(self):
         build = BuildInjectQuery()
-        self.query = build.build_query_select(self.select_table, self.select_join_table)
+        self.query = build.build_query_select(self.select_table, self.select_table_join, self.select_table_join_2,
+                                              self.select_table_join_3)

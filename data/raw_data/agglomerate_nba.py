@@ -70,7 +70,5 @@ def write_csv(path: str, df_players: pd.DataFrame) -> None:
 
 df_players = read_file('nba/nba_players_1.csv')
 dict_teams = read_file_convert_dict('nba/teams_code.csv')
-#print(dict_teams)
 df_players = select_information(df_players,dict_teams)
 write_csv("../clean_data/nba_players_usa.csv", df_players)
-print(df_players)

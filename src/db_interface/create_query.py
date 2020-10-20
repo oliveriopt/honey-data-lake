@@ -50,10 +50,21 @@ class BuildInjectQuery:
             return q
 
     @staticmethod
-    def build_query_select(table, table_join):
-        table, table_j = Tables(table, table_join)
-        if (table_join == "geographic_zone"):
-            q = PostgreSQLQuery.from_(table).join(table_j).on(table.geographic_zone_id == table_j.id).select( \
-                'id', 'first_name', "middle_name", "last_name", "state", "country", "continent")
-
-
+    def build_query_select(table: str, table_join: str, table_join_2: str, table_join_3: str):
+        """
+        Build the query select with three joins
+        :param table:
+        :param table_join:
+        :param table_join_2:
+        :param table_join_3:
+        :return:
+        """
+        table, table_j1, table_j2, table_j3 = Tables(table, table_join, table_join_2, table_join_3)
+        q = PostgreSQLQuery.from_(table).join(table_j1).on(table.geographic_zone_id == table_j1.id).join(
+            table_j2).on(table.category_id == table_j2.id).join(table_j3).on(table.language_id ==
+                                                                               table_j3.id).select( \
+            table.id, table.first_name, table.middle_name, table.last_name, table_j1.id, table_j1.state,
+            table_j1.country,
+            table_j1.continent, table_j2.id, table_j2.category, table_j3.id , table_j3.primar)
+        q = str(q).replace("JOIN", "FULL JOIN")
+        return str(q)
