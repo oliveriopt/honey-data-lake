@@ -1,4 +1,4 @@
- CREATE TABLE "newscontent" (
+CREATE TABLE "newscontent" (
 	"id" serial,
 	"persona_id" integer NOT NULL,
 	"title" VARCHAR(255),

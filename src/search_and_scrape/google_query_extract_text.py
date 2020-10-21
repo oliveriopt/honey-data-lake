@@ -28,11 +28,12 @@ class GoogleNewsSearchScrap:
         :return:
         """
         self.googlenews.search(self.query)
-        self.googlenews.getpage(self.number_page)
+        #self.googlenews.getpage(self.number_page)
         self.result = self.googlenews.result()
+        print(self.result)
         self.googlenews.clear()
         self.result = pd.DataFrame(self.result)
-        self.result = self.result.head(n=10)
+        print(self.result)
 
     def __scrap_news(self, url: str) -> str:
         """

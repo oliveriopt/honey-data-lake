@@ -1,5 +1,6 @@
 from src.pipeline.inject_data import SelectInsertUpdateDataSQL
 from src.search_and_scrape.google_query_extract_text import GoogleNewsSearchScrap
+from random import randint
 
 import src.pipeline.cons_pipeline as cons
 import pandas as pd
@@ -59,7 +60,7 @@ class ProcessPipelineInjectionSelection:
                                            select_table_join_3=self.select_table_join_3)
         self.result_sql = inject.process_select_query()
         self.result_sql = pd.DataFrame.from_records(self.result_sql, columns=cons.columns_sql)
-        self.result_sql = self.result_sql.head(n=20)
+        self.result_sql = self.result_sql.sample(n=1)
 
     def __google_news_search(self, query_search: str, lang: str):
         """
@@ -78,10 +79,8 @@ class ProcessPipelineInjectionSelection:
         return value_change
 
     def process_searching(self) -> None:
-        print(cons.logfile)
         logging.basicConfig(filename=cons.logfile, level=logging.INFO, format='%(asctime)s - %(message)s')
         self.__select_data_sql()
-        start = time.time()
         for index, row in self.result_sql.iterrows():
             fn = self.__change_none_type(row["first_name"])
             mn = self.__change_none_type(row["middle_name"])
@@ -93,10 +92,13 @@ class ProcessPipelineInjectionSelection:
             self.__google_news_search(str(string_search), str(lang))
             self.result_search_google_news["persona_id"] = row["persona_id"]
             self.result_search_google_news["source_search"] = "GOOG_NEWS"
+            print(string_search)
+            print(self.result_search_google_news)
             self.result_search_google_news = self.result_search_google_news[cons.columns_news]
+            print(self.result_search_google_news)
             self.result_news = self.result_news.append(self.result_search_google_news, ignore_index=True)
             self.result_news.reset_index(drop=True)
-            logging.info("Time aggregate for String search: ", str(time.time() - start) + " sec")
+            time.sleep(randint(4, 30))
         self.result_news = self.result_news[cons.columns_news_extended]
         self.result_news = self.result_news.to_records(index=True)
         self.result_news = list(self.result_news)

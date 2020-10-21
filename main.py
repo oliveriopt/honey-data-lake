@@ -1,8 +1,10 @@
 from src.pipeline.process_pipeline import ProcessPipelineInjectionSelection
 
 import src.pipeline.cons_pipeline as cons
+import sys
 
 def init_table() -> None:
+
     for item in cons.tables:
         insert_table = item
         pipeline = ProcessPipelineInjectionSelection(insert_table=insert_table, select_table=None,
@@ -23,10 +25,9 @@ def run_scrapper():
                                                  select_table_join_3=select_table_join_3)
     pipeline.process_searching()
 
-
 if __name__ == '__main__':
-    var_do = "CREATE!"
-    if var_do == "CREATE":
+    var = "CREATE1"
+    if var == "CREATE":
         init_table()
     else:
         run_scrapper()
