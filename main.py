@@ -26,7 +26,7 @@ def run_scrapper():
     pipeline.process_searching()
 
 if __name__ == '__main__':
-    var = "CREATE1"
+    var = "CREATE"
     if var == "CREATE":
         init_table()
     else:
