@@ -59,7 +59,7 @@ class ProcessPipelineInjectionSelection:
                                            select_table_join_3=self.select_table_join_3)
         self.result_sql = inject.process_select_query()
         self.result_sql = pd.DataFrame.from_records(self.result_sql, columns=cons.columns_sql)
-        self.result_sql = self.result_sql.sample(n=1)
+        #self.result_sql = self.result_sql.sample(n=1)
 
     def __google_news_search(self, query_search: str, lang: str, location: str) -> None:
         """

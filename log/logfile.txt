@@ -125,3 +125,9 @@
 2020-10-28 19:04:43,896 - index: 5420	String search: branden  jackson	State: pennsylvania	Language: en
 2020-10-28 19:06:09,663 - Connection to server successful!
 2020-10-28 19:06:09,728 - index: 7750	String search: john  jenkins	State: atlanta	Language: en
+2020-10-28 19:58:57,820 - Connection to server successful!
+2020-10-28 19:58:57,858 - index: 0	String search: brooks  mo	State: alabama	Language: en
+2020-10-28 19:58:59,668 - index: 1	String search: byrne  bradley	State: alabama	Language: en
+2020-10-28 19:59:58,251 - Connection to server successful!
+2020-10-28 19:59:58,259 - index: 0	String search: brooks  mo	State: alabama	Language: en
+2020-10-28 19:59:58,426 - index: 1	String search: byrne  bradley	State: alabama	Language: en

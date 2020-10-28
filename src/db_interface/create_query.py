@@ -65,6 +65,7 @@ class BuildInjectQuery:
                                                                                table_j3.id).select( \
             table.id, table.first_name, table.middle_name, table.last_name, table_j1.id, table_j1.state,
             table_j1.country,
-            table_j1.continent, table_j2.id, table_j2.category, table_j3.id , table_j3.primar)
+            table_j1.continent, table_j2.id, table_j2.category, table_j3.id , table_j3.primar).limit(2).offset(2)
         q = str(q).replace("JOIN", "FULL JOIN")
+        print(q)
         return str(q)
