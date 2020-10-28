@@ -6,6 +6,7 @@ import src.pipeline.cons_pipeline as cons
 import pandas as pd
 import time
 import logging
+import dateparser
 
 pd.set_option('display.max_rows', 1000)
 pd.set_option('display.max_columns', 500)
@@ -62,44 +63,57 @@ class ProcessPipelineInjectionSelection:
         self.result_sql = pd.DataFrame.from_records(self.result_sql, columns=cons.columns_sql)
         self.result_sql = self.result_sql.sample(n=1)
 
-    def __google_news_search(self, query_search: str, lang: str):
+    def __google_news_search(self, query_search: str, lang: str, location: str) -> None:
         """
         Search into google news
         :param query_search:
         :param lang:
         :return:
         """
-        news = GoogleNewsSearchScrap(query_search, lang)
+        news = GoogleNewsSearchScrap(query=query_search, lang=lang, location=location)
         news.process_search_scrap_news()
         self.result_search_google_news = news.result
 
-    def __change_none_type(self, value_change: str):
+    def __change_none_type(self, value_change: str) -> None or str:
         if value_change is None:
             return ""
         return value_change
+
+    def __crete_string_search(self, index, row) -> None:
+        fn = self.__change_none_type(row["first_name"])
+        mn = self.__change_none_type(row["middle_name"])
+        ln = self.__change_none_type(row["last_name"])
+        st = self.__change_none_type(row["state"])
+        lang = self.__change_none_type(row["language"])
+        string_search = fn + " " + mn + " " + ln, st
+        info = "index: " + str(index) + "\tString search: " + string_search + "\tState: " + st + "\tLanguage: " + \
+               lang
+        logging.info(info)
+        return string_search
+
+    def __change_date(self)->None:
+        for index, row in self.result_search_google_news.iterrows():
+            date = row["date"]
+            self.result_search_google_news.at[index, "date"] = dateparser.parse(date).strftime("%Y-%m-%d")
 
     def process_searching(self) -> None:
         logging.basicConfig(filename=cons.logfile, level=logging.INFO, format='%(asctime)s - %(message)s')
         self.__select_data_sql()
         for index, row in self.result_sql.iterrows():
-            fn = self.__change_none_type(row["first_name"])
-            mn = self.__change_none_type(row["middle_name"])
-            ln = self.__change_none_type(row["last_name"])
-            st = self.__change_none_type(row["state"])
-            lang = self.__change_none_type(row["language"])
-            string_search = fn + " " + mn + " " + ln + " " + st
-            logging.info('%s String search', string_search)
-            self.__google_news_search(str(string_search), str(lang))
+            string_search, st = self.__changes_none()
+
+            self.__google_news_search(str(string_search), str(lang), str(st))
             self.result_search_google_news["persona_id"] = row["persona_id"]
             self.result_search_google_news["source_search"] = "GOOG_NEWS"
+            self.result_search_google_news["content_txt"] = None
             print(string_search)
+            self.__change_date()
+            self.result_search_google_news = self.result_search_google_news.rename(columns=cons.colummn_news_change)
+            self.result_search_google_news = self.result_search_google_news[cons.columns_news_reshape]
             print(self.result_search_google_news)
-            self.result_search_google_news = self.result_search_google_news[cons.columns_news]
-            print(self.result_search_google_news)
-            self.result_news = self.result_news.append(self.result_search_google_news, ignore_index=True)
-            self.result_news.reset_index(drop=True)
-            time.sleep(randint(4, 30))
-        self.result_news = self.result_news[cons.columns_news_extended]
+        # print(self.result_search_google_news)
+        self.result_news = self.result_news.append(self.result_search_google_news, ignore_index=True)
+        self.result_news.reset_index(drop=True)
         self.result_news = self.result_news.to_records(index=True)
         self.result_news = list(self.result_news)
-        self.__update_data_sql(cons.news_content)
+        #self.__update_data_sql(cons.news_content)

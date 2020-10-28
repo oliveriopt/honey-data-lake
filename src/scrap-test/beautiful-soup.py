@@ -1,25 +1,24 @@
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
+from serpapi.google_search_results import GoogleSearchResults
 
 try:
-    options = Options()
-    options.headless = True
-    options.add_argument("--window-size=1820,1150")
-    DRIVER_PATH = '/Users/oliverpozo/Desktop/EVS/honey-data-lake/binary/chromedriver'
-    driver = webdriver.Chrome(options=options, executable_path=DRIVER_PATH)
-    driver.set_preference("http.response.timeout", 100)
-    driver.set_preference("dom.max_script_run_time", 100)
-    driver.get("https://news.google.com/search?q=ivey%20kay%20alabama%20when%3A1y&hl=en-US&gl=US&ceid=US%3Aen")
-    print(driver.page_source)
-    driver.quit()
-    for headline in driver.find_elements_by_class_name('cd__headline-text'):
-        print(headline.text)
-    #print(driver.page_source)
+    params = {
+        "q": "kirk hinrich",
+        "tbm": "nws",
+        "gl": "us",
+        "hl": "en",
+        "location": "atlanta",
+        "num": 20,
+        "api_key": "29714c89070e1853d4834ddd74ce3a1a99b5e1a896bbba50e7110a547478ae68"
+    }
+
+    client = GoogleSearchResults(params)
+    results = client.get_dict()
+    news_results = results['news_results']
+    print(news_results)
 
 except:
     pass
-f = open('file.py', 'w')
-f.write('dict = ' + repr(driver.page_source) + '\n')
-f.close()
-for headline in driver.find_elements_by_class_name('cd__headline-text'):
-    print(headline.text)
+
+
+
+

@@ -49,3 +49,66 @@
 2020-10-20 18:22:59,816 - Connection to server successful!
 2020-10-20 18:22:59,890 - bobby  wagner california String search
 2020-10-20 18:23:24,417 - Connection to server successful!
+2020-10-26 16:28:59,397 - Connection to server successful!
+2020-10-26 16:28:59,505 - roy  chip texas String search
+2020-10-26 16:29:41,804 - Connection to server successful!
+2020-10-26 16:32:06,260 - Connection to server successful!
+2020-10-26 16:32:06,333 - nick  hardwick indiana String search
+2020-10-26 16:32:15,250 - Connection to server successful!
+2020-10-26 16:32:15,339 - ron  janes missouri String search
+2020-10-26 16:32:53,461 - Connection to server successful!
+2020-10-28 16:05:46,046 - Connection to server successful!
+2020-10-28 16:05:46,348 - index: 3893String search: scott  rehberg michiganState: michiganLanguage: en
+2020-10-28 16:06:24,293 - Connection to server successful!
+2020-10-28 16:06:24,354 - index: 5591String search: brandon  wilds south carolinaState: south carolinaLanguage: en
+2020-10-28 16:07:00,739 - Connection to server successful!
+2020-10-28 16:07:00,806 - index: 5099String search: rodney  bailey ohioState: ohioLanguage: en
+2020-10-28 16:08:49,395 - Connection to server successful!
+2020-10-28 16:08:49,463 - index: 816String search: beau  gardnerState: arizonaLanguage: en
+2020-10-28 16:29:49,874 - Connection to server successful!
+2020-10-28 16:29:49,943 - index: 3012	String search: solomon  thomas	State: illinois	Language: en
+2020-10-28 16:30:31,239 - Connection to server successful!
+2020-10-28 16:30:31,306 - index: 7167	String search: bojan  bogdanovic	State: indiana	Language: en
+2020-10-28 16:32:57,205 - Connection to server successful!
+2020-10-28 16:32:57,282 - index: 10431	String search: john  holland	State: cleveland	Language: en
+2020-10-28 16:35:07,927 - Connection to server successful!
+2020-10-28 16:35:08,000 - index: 1622	String search: chilo  rachal	State: california	Language: en
+2020-10-28 16:57:08,163 - Connection to server successful!
+2020-10-28 16:57:08,232 - index: 4736	String search: earl  wolff	State: north carolina	Language: en
+2020-10-28 16:58:40,903 - Connection to server successful!
+2020-10-28 16:58:40,973 - index: 8167	String search: ronnie  price	State: los angeles	Language: en
+2020-10-28 17:00:06,958 - Connection to server successful!
+2020-10-28 17:00:07,024 - index: 2839	String search: ka'imi  fairbairn	State: hawaii	Language: en
+2020-10-28 17:00:24,003 - Connection to server successful!
+2020-10-28 17:00:24,077 - index: 223	String search: abraham  ralph	State: louisiana	Language: en
+2020-10-28 17:00:46,245 - Connection to server successful!
+2020-10-28 17:00:46,307 - index: 3007	String search: rich  gardner	State: illinois	Language: en
+2020-10-28 17:00:59,170 - Connection to server successful!
+2020-10-28 17:00:59,234 - index: 573	String search: pocan  mark	State: wisconsin	Language: en
+2020-10-28 17:01:07,790 - Connection to server successful!
+2020-10-28 17:01:07,867 - index: 6153	String search: dedric  mathis	State: texas	Language: en
+2020-10-28 17:03:57,843 - Connection to server successful!
+2020-10-28 17:03:57,926 - index: 2930	String search: matt  o'dwyer	State: illinois	Language: en
+2020-10-28 17:04:29,239 - Connection to server successful!
+2020-10-28 17:04:29,308 - index: 1146	String search: terry  richardson	State: california	Language: en
+2020-10-28 17:05:14,054 - Connection to server successful!
+2020-10-28 17:05:14,132 - index: 7835	String search: bruno  fernando	State: atlanta	Language: en
+2020-10-28 17:05:49,815 - Connection to server successful!
+2020-10-28 17:05:49,895 - index: 7608	String search: tibor  pleiss	State: utah	Language: en
+2020-10-28 17:06:26,559 - Connection to server successful!
+2020-10-28 17:06:26,635 - index: 5402	String search: mark  glowinski	State: pennsylvania	Language: en
+2020-10-28 17:13:32,197 - Connection to server successful!
+2020-10-28 17:13:32,273 - index: 1967	String search: quincy  wilson	State: florida	Language: en
+2020-10-28 17:16:03,128 - Connection to server successful!
+2020-10-28 17:16:03,202 - index: 2097	String search: elton  patterson	State: florida	Language: en
+2020-10-28 17:16:31,075 - Connection to server successful!
+2020-10-28 17:16:31,148 - index: 8569	String search: tony  snell	State: chicago	Language: en
+2020-10-28 17:16:53,370 - Connection to server successful!
+2020-10-28 17:16:53,435 - index: 10621	String search: mo  bamba	State: orlando	Language: en
+2020-10-28 17:17:38,410 - Connection to server successful!
+2020-10-28 17:17:38,476 - index: 2287	String search: garrison  sanborn	State: florida	Language: en
+2020-10-28 17:19:33,235 - Connection to server successful!
+2020-10-28 17:19:33,297 - index: 9020	String search: nolan  smith	State: portland	Language: en
+2020-10-28 17:19:36,938 - Connection to server successful!
+2020-10-28 18:27:03,645 - Connection to server successful!
+2020-10-28 18:27:03,712 - index: 9061	String search: robin  lopez	State: portland	Language: en
