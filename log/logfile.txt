@@ -112,3 +112,16 @@
 2020-10-28 17:19:36,938 - Connection to server successful!
 2020-10-28 18:27:03,645 - Connection to server successful!
 2020-10-28 18:27:03,712 - index: 9061	String search: robin  lopez	State: portland	Language: en
+2020-10-28 18:44:02,263 - Connection to server successful!
+2020-10-28 18:44:21,913 - Connection to server successful!
+2020-10-28 18:44:21,979 - index: 9683	String search: henry  sims	State: philadelphia	Language: en
+2020-10-28 18:50:37,146 - Connection to server successful!
+2020-10-28 18:50:37,210 - index: 6799	String search: samuel  lightbody	State: 	Language: en
+2020-10-28 18:54:43,573 - Connection to server successful!
+2020-10-28 18:54:43,642 - index: 9763	String search: furkan  korkmaz	State: philadelphia	Language: en
+2020-10-28 19:04:25,330 - Connection to server successful!
+2020-10-28 19:04:25,396 - index: 362	String search: maloney  sean	State: new york	Language: en
+2020-10-28 19:04:43,833 - Connection to server successful!
+2020-10-28 19:04:43,896 - index: 5420	String search: branden  jackson	State: pennsylvania	Language: en
+2020-10-28 19:06:09,663 - Connection to server successful!
+2020-10-28 19:06:09,728 - index: 7750	String search: john  jenkins	State: atlanta	Language: en

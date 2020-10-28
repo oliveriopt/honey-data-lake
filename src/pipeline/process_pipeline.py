@@ -1,10 +1,8 @@
 from src.pipeline.inject_data import SelectInsertUpdateDataSQL
-from src.search_and_scrape.google_query_extract_text import GoogleNewsSearchScrap
-from random import randint
+from tools.search_and_scrape.google_query_extract_text import GoogleNewsSearchScrap
 
 import src.pipeline.cons_pipeline as cons
 import pandas as pd
-import time
 import logging
 import dateparser
 
@@ -79,41 +77,61 @@ class ProcessPipelineInjectionSelection:
             return ""
         return value_change
 
-    def __crete_string_search(self, index, row) -> None:
+    def __crete_string_search(self, index, row) -> tuple:
+        """
+        Create string search from dataframe
+        :param index:
+        :param row:
+        :return:
+        """
         fn = self.__change_none_type(row["first_name"])
         mn = self.__change_none_type(row["middle_name"])
         ln = self.__change_none_type(row["last_name"])
         st = self.__change_none_type(row["state"])
         lang = self.__change_none_type(row["language"])
-        string_search = fn + " " + mn + " " + ln, st
+        string_search = fn + " " + mn + " " + ln
         info = "index: " + str(index) + "\tString search: " + string_search + "\tState: " + st + "\tLanguage: " + \
                lang
         logging.info(info)
-        return string_search
+        return string_search, st, lang
 
-    def __change_date(self)->None:
-        for index, row in self.result_search_google_news.iterrows():
-            date = row["date"]
-            self.result_search_google_news.at[index, "date"] = dateparser.parse(date).strftime("%Y-%m-%d")
+    def __change_date(self) -> None:
+        """
+        Change date from "X weeks ago" to date format using year, month, day
+        :return:
+        """
+        for index_date, row_date in self.result_search_google_news.iterrows():
+            date = row_date["date"]
+            self.result_search_google_news.at[index_date, "date"] = dateparser.parse(date).strftime("%Y-%m-%d")
+
+    def __reshape_data(self, row) -> None:
+        """
+        Reshape data, introducing persona_id and other columns
+        :param row:
+        :return:
+        """
+        self.result_search_google_news["persona_id"] = row["persona_id"]
+        self.result_search_google_news["source_search"] = "GOOG_NEWS"
+        self.result_search_google_news["content_txt"] = None
+        self.__change_date()
+        self.result_search_google_news = self.result_search_google_news.rename(columns=cons.colummn_news_change)
+        self.result_search_google_news = self.result_search_google_news[cons.columns_news_reshape]
 
     def process_searching(self) -> None:
+        """
+
+        :return:
+        """
         logging.basicConfig(filename=cons.logfile, level=logging.INFO, format='%(asctime)s - %(message)s')
         self.__select_data_sql()
         for index, row in self.result_sql.iterrows():
-            string_search, st = self.__changes_none()
-
+            string_search, st, lang = self.__crete_string_search(index, row)
             self.__google_news_search(str(string_search), str(lang), str(st))
-            self.result_search_google_news["persona_id"] = row["persona_id"]
-            self.result_search_google_news["source_search"] = "GOOG_NEWS"
-            self.result_search_google_news["content_txt"] = None
             print(string_search)
-            self.__change_date()
-            self.result_search_google_news = self.result_search_google_news.rename(columns=cons.colummn_news_change)
-            self.result_search_google_news = self.result_search_google_news[cons.columns_news_reshape]
+            self.__reshape_data(row)
             print(self.result_search_google_news)
-        # print(self.result_search_google_news)
         self.result_news = self.result_news.append(self.result_search_google_news, ignore_index=True)
         self.result_news.reset_index(drop=True)
         self.result_news = self.result_news.to_records(index=True)
         self.result_news = list(self.result_news)
-        #self.__update_data_sql(cons.news_content)
+        # self.__update_data_sql(cons.news_content)
