@@ -2,6 +2,7 @@ from src.pipeline.process_pipeline import ProcessPipelineInjectionSelection
 
 import src.pipeline.cons_pipeline as cons
 import sys
+import numpy as np
 
 
 def init_table() -> None:
@@ -40,7 +41,7 @@ if __name__ == '__main__':
     if sys.argv[1] == "create":
         init_table()
     elif sys.argv[1] == "ss":
-        limit = 2
-        for offset in range(0, 6, limit):
-            print(offset)
-            run_scrapper(limit=limit, offset=offset)
+        list_batch = np.array_split(np.arange(int(sys.argv[3])).tolist(), int(sys.argv[3]) / int(sys.argv[5]))
+        for batch in list_batch:
+            print(list(batch))
+            run_scrapper(limit=len(batch), offset=batch[0])

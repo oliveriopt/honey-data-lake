@@ -82,7 +82,7 @@ class ProcessPipelineInjectionSelection:
             return ""
         return value_change
 
-    def __crete_string_search(self, index, row) -> tuple:
+    def __crete_string_search(self, row) -> tuple:
         """
         Create string search from dataframe
         :param index:
@@ -95,7 +95,7 @@ class ProcessPipelineInjectionSelection:
         st = self.__change_none_type(row["state"])
         lang = self.__change_none_type(row["language"])
         string_search = fn + " " + mn + " " + ln
-        info = "index: " + str(index) + "\tString search: " + string_search + "\tState: " + st + "\tLanguage: " + \
+        info = "String search: " + string_search + "\tState: " + st + "\tLanguage: " + \
                lang
         logging.info(info)
         return string_search, st, lang
@@ -124,7 +124,7 @@ class ProcessPipelineInjectionSelection:
 
     def process_searching(self, limit: int, offset: int) -> None:
         """
-
+        Process searching
         :return:
         """
         logging.basicConfig(filename=cons.logfile, level=logging.INFO, format='%(asctime)s - %(message)s')
@@ -132,12 +132,10 @@ class ProcessPipelineInjectionSelection:
         for index, row in self.result_sql.iterrows():
             string_search, st, lang = self.__crete_string_search(index, row)
             self.__google_news_search(str(string_search), str(lang), str(st))
-            print(string_search)
             self.__reshape_data(row)
-        self.result_news = self.result_news.append(self.result_search_google_news, ignore_index=True)
+            self.result_news = self.result_news.append(self.result_search_google_news, ignore_index=True)
         self.result_news.reset_index(drop=True)
-        print(self.result_news)
-        #self.result_news.index = np.arange(offset, limit)
+        self.result_news.index = np.arange(offset*20, offset*20 +  limit*20)
         self.result_news = self.result_news.to_records(index=True)
         self.result_news = list(self.result_news)
         self.__update_data_sql(cons.news_content)
