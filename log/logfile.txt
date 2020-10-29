@@ -1,0 +1,53 @@
+2020-10-29 14:02:12,204 - Connection to server successful!
+2020-10-29 14:02:12,212 - String search: ivey  kay	State: alabama	Language: en
+2020-10-29 14:02:17,482 - String search: aderholt  robert	State: alabama	Language: en
+2020-10-29 14:02:32,163 - Connection to server successful!
+2020-10-29 14:02:32,185 - Connection to server successful!
+2020-10-29 14:02:32,192 - String search: brooks  mo	State: alabama	Language: en
+2020-10-29 14:02:43,323 - String search: byrne  bradley	State: alabama	Language: en
+2020-10-29 14:05:28,067 - Connection to server successful!
+2020-10-29 14:05:28,073 - String search: ivey  kay	State: alabama	Language: en
+2020-10-29 14:05:31,495 - String search: aderholt  robert	State: alabama	Language: en
+2020-10-29 14:05:34,866 - Connection to server successful!
+2020-10-29 14:05:34,873 - Connection to server successful!
+2020-10-29 14:05:34,877 - String search: brooks  mo	State: alabama	Language: en
+2020-10-29 14:05:43,271 - String search: byrne  bradley	State: alabama	Language: en
+2020-10-29 14:06:25,616 - Connection to server successful!
+2020-10-29 14:06:25,621 - String search: ivey  kay	State: alabama	Language: en
+2020-10-29 14:06:28,347 - String search: aderholt  robert	State: alabama	Language: en
+2020-10-29 14:06:30,369 - Connection to server successful!
+2020-10-29 14:06:30,376 - Connection to server successful!
+2020-10-29 14:06:30,381 - String search: brooks  mo	State: alabama	Language: en
+2020-10-29 14:06:37,444 - String search: byrne  bradley	State: alabama	Language: en
+2020-10-29 14:11:54,340 - Connection to server successful!
+2020-10-29 14:11:54,346 - String search: ivey  kay	State: alabama	Language: en
+2020-10-29 14:11:58,525 - String search: aderholt  robert	State: alabama	Language: en
+2020-10-29 14:12:01,674 - Connection to server successful!
+2020-10-29 14:12:01,681 - Connection to server successful!
+2020-10-29 14:12:01,686 - String search: brooks  mo	State: alabama	Language: en
+2020-10-29 14:12:09,761 - String search: byrne  bradley	State: alabama	Language: en
+2020-10-29 14:13:26,685 - Connection to server successful!
+2020-10-29 14:13:26,691 - String search: ivey  kay	State: alabama	Language: en
+2020-10-29 14:13:28,287 - String search: aderholt  robert	State: alabama	Language: en
+2020-10-29 14:13:30,367 - Connection to server successful!
+2020-10-29 14:13:30,374 - Connection to server successful!
+2020-10-29 14:13:30,379 - String search: brooks  mo	State: alabama	Language: en
+2020-10-29 14:13:38,874 - String search: byrne  bradley	State: alabama	Language: en
+2020-10-29 14:14:31,521 - Connection to server successful!
+2020-10-29 14:14:31,529 - String search: ivey  kay	State: alabama	Language: en
+2020-10-29 14:14:35,532 - String search: aderholt  robert	State: alabama	Language: en
+2020-10-29 14:14:37,582 - Connection to server successful!
+2020-10-29 14:14:37,590 - Connection to server successful!
+2020-10-29 14:14:37,595 - String search: brooks  mo	State: alabama	Language: en
+2020-10-29 14:14:44,636 - String search: byrne  bradley	State: alabama	Language: en
+2020-10-29 14:17:02,104 - Connection to server successful!
+2020-10-29 14:17:02,112 - String search: ivey  kay	State: alabama	Language: en
+2020-10-29 14:17:04,657 - String search: aderholt  robert	State: alabama	Language: en
+2020-10-29 14:17:12,271 - Connection to server successful!
+2020-10-29 14:17:12,277 - String search: ivey  kay	State: alabama	Language: en
+2020-10-29 14:17:13,998 - String search: aderholt  robert	State: alabama	Language: en
+2020-10-29 14:17:15,803 - Connection to server successful!
+2020-10-29 14:17:15,811 - Connection to server successful!
+2020-10-29 14:17:15,816 - String search: brooks  mo	State: alabama	Language: en
+2020-10-29 14:17:23,535 - String search: byrne  bradley	State: alabama	Language: en
+2020-10-29 14:17:28,226 - Connection to server successful!

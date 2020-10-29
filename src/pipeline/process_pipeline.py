@@ -73,8 +73,6 @@ class ProcessPipelineInjectionSelection:
         news = GoogleNewsSearchScrap(query=query_search, lang=lang, location=location)
         news.process_search_scrap_news()
         self.result_search_google_news = news.result
-        print("GOOOGLE INSIDE")
-        print(self.result_search_google_news)
 
     def __change_none_type(self, value_change: str) -> None or str:
         """
@@ -138,8 +136,11 @@ class ProcessPipelineInjectionSelection:
             self.__reshape_data(row)
             self.result_news = self.result_news.append(self.result_search_google_news, ignore_index=True)
         self.result_news.reset_index(drop=True)
-        self.result_news.index = np.arange(offset, offset * cons_goo_scr.number_search + limit *
-                                           cons_goo_scr.number_search)
+        print(self.result_news)
+        print(offset * cons_goo_scr.number_search, (offset * cons_goo_scr.number_search) + (limit * cons_goo_scr.number_search))
+        self.result_news.index = np.arange(offset * cons_goo_scr.number_search, (offset * cons_goo_scr.number_search) + (limit *
+                                           cons_goo_scr.number_search))
+        print(self.result_news.index)
         self.result_news = self.result_news.to_records(index=True)
         self.result_news = list(self.result_news)
         self.__update_data_sql(cons.news_content)

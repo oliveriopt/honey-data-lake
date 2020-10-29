@@ -44,6 +44,7 @@ if __name__ == '__main__':
     elif sys.argv[1] == "ss":
         list_batch = np.array_split(np.arange(int(sys.argv[3]), int(sys.argv[5])).tolist(), int(sys.argv[5]) / int(
             sys.argv[7]))
+        print(list_batch)
         for batch in list_batch:
             print(list(batch))
             run_scrapper(limit=len(batch), offset=batch[0])
