@@ -59,6 +59,7 @@ class GoogleNewsSearchScrap:
 
     def process_search_scrap_news(self):
         self.__search_news()
-        # for index, rows in self.result.iterrows():
-        #    self.__scrap_news(rows["link"])
-        #    self.result.at[index, "content_txt"] = self.text
+        for index, rows in self.result.iterrows():
+            self.__scrap_news(rows["link"])
+            self.result.at[index, "content_txt"] = self.text
+            print(self.text)

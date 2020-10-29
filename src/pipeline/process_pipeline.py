@@ -2,6 +2,7 @@ from src.pipeline.inject_data import SelectInsertUpdateDataSQL
 from tools.search_and_scrape.google_query_extract_text import GoogleNewsSearchScrap
 
 import src.pipeline.cons_pipeline as cons
+import tools.search_and_scrape.cons_google_search as cons_goo_scr
 import pandas as pd
 import logging
 import dateparser
@@ -43,6 +44,7 @@ class ProcessPipelineInjectionSelection:
         Update data to posgres database
         :return:
         """
+        print(self.result_news)
         inject = SelectInsertUpdateDataSQL(path_file=None, insert_table=table_update, insert_values=self.result_news,
                                            select_table=None, select_table_join=None, select_table_join_2=None,
                                            select_table_join_3=None)
@@ -71,6 +73,8 @@ class ProcessPipelineInjectionSelection:
         news = GoogleNewsSearchScrap(query=query_search, lang=lang, location=location)
         news.process_search_scrap_news()
         self.result_search_google_news = news.result
+        print("GOOOGLE INSIDE")
+        print(self.result_search_google_news)
 
     def __change_none_type(self, value_change: str) -> None or str:
         """
@@ -82,7 +86,7 @@ class ProcessPipelineInjectionSelection:
             return ""
         return value_change
 
-    def __crete_string_search(self, row) -> tuple:
+    def __create_string_search(self, row) -> tuple:
         """
         Create string search from dataframe
         :param index:
@@ -117,7 +121,6 @@ class ProcessPipelineInjectionSelection:
         """
         self.result_search_google_news["persona_id"] = row["persona_id"]
         self.result_search_google_news["source_search"] = "GOOG_NEWS"
-        self.result_search_google_news["content_txt"] = None
         self.__change_date()
         self.result_search_google_news = self.result_search_google_news.rename(columns=cons.colummn_news_change)
         self.result_search_google_news = self.result_search_google_news[cons.columns_news_reshape]
@@ -130,12 +133,13 @@ class ProcessPipelineInjectionSelection:
         logging.basicConfig(filename=cons.logfile, level=logging.INFO, format='%(asctime)s - %(message)s')
         self.__select_data_sql(limit=limit, offset=offset)
         for index, row in self.result_sql.iterrows():
-            string_search, st, lang = self.__crete_string_search(index, row)
+            string_search, st, lang = self.__create_string_search(row)
             self.__google_news_search(str(string_search), str(lang), str(st))
             self.__reshape_data(row)
             self.result_news = self.result_news.append(self.result_search_google_news, ignore_index=True)
         self.result_news.reset_index(drop=True)
-        self.result_news.index = np.arange(offset*20, offset*20 +  limit*20)
+        self.result_news.index = np.arange(offset, offset * cons_goo_scr.number_search + limit *
+                                           cons_goo_scr.number_search)
         self.result_news = self.result_news.to_records(index=True)
         self.result_news = list(self.result_news)
         self.__update_data_sql(cons.news_content)

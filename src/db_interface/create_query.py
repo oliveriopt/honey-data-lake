@@ -69,5 +69,4 @@ class BuildInjectQuery:
             table_j1.continent, table_j2.id, table_j2.category, table_j3.id , table_j3.primar).limit(limit).offset(
             offset)
         q = str(q).replace("JOIN", "FULL JOIN")
-        print(q)
         return str(q)

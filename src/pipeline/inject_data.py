@@ -45,7 +45,6 @@ class SelectInsertUpdateDataSQL:
                                          select_table_join_3=None)
         db_interface.connect_database()
         db_interface.create_insert_query()
-        print(db_interface.query)
         self.conn_db.insert_update_query(db_interface.query)
 
     def __connect_select_query(self, limit:int, offset:int) -> tuple:
