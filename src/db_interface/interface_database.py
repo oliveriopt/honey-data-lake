@@ -22,7 +22,7 @@ class InterfaceDatabase:
         """
         self.conn.open_connection()
 
-    def create_insert_query(self):
+    def create_insert_query(self) -> None:
         """
         Create the query for insert values
         :param table: name of the table to insert values
@@ -32,7 +32,13 @@ class InterfaceDatabase:
         build = BuildInjectQuery()
         self.query = build.build_query_insert(table=self.table, key_duplicate=True, list_values=self.list_values)
 
-    def create_select_query(self, limit:int, offset:int):
+    def create_select_query(self, limit:int, offset:int) -> None:
+        """
+        Create select query
+        :param limit:
+        :param offset:
+        :return:
+        """
         build = BuildInjectQuery()
         self.query = build.build_query_select(self.select_table, self.select_table_join, self.select_table_join_2,
                                               self.select_table_join_3, limit=limit, offset=offset)

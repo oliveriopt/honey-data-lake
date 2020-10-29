@@ -9,7 +9,7 @@ logger = logging.getLogger()
 class BuildInjectQuery:
 
     @staticmethod
-    def build_query_insert(table: str, key_duplicate: bool, list_values: list):
+    def build_query_insert(table: str, key_duplicate: bool, list_values: list) -> str:
         '''
         Build query Insert
         :param key_duplicate : boolean in oredr to have dupliacte key on query
@@ -31,7 +31,7 @@ class BuildInjectQuery:
         return str(q)
 
     @staticmethod
-    def function_insert(q: PostgreSQLQuery, values: list, table: str, i: int):
+    def function_insert(q: PostgreSQLQuery, values: list, table: str, i: int) -> str:
         '''
         Isnert values of list on query
         :param q : list of entities
@@ -51,7 +51,7 @@ class BuildInjectQuery:
 
     @staticmethod
     def build_query_select(table: str, table_join: str, table_join_2: str, table_join_3: str, limit: int,
-                           offset:int):
+                           offset:int)-> str:
         """
         Build the query select with three joins
         :param table:

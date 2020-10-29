@@ -5,6 +5,10 @@ import sys
 
 
 def init_table() -> None:
+    """
+    Insert data from csv file to sql database
+    :return:
+    """
     for item in cons.tables:
         insert_table = item
         pipeline = ProcessPipelineInjectionSelection(insert_table=insert_table, select_table=None,
