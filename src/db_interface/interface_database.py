@@ -32,7 +32,7 @@ class InterfaceDatabase:
         build = BuildInjectQuery()
         self.query = build.build_query_insert(table=self.table, key_duplicate=True, list_values=self.list_values)
 
-    def create_select_query(self):
+    def create_select_query(self, limit:int, offset:int):
         build = BuildInjectQuery()
         self.query = build.build_query_select(self.select_table, self.select_table_join, self.select_table_join_2,
-                                              self.select_table_join_3)
+                                              self.select_table_join_3, limit=limit, offset=offset)

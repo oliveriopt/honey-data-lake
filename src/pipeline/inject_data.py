@@ -45,9 +45,10 @@ class SelectInsertUpdateDataSQL:
                                          select_table_join_3=None)
         db_interface.connect_database()
         db_interface.create_insert_query()
+        print(db_interface.query)
         self.conn_db.insert_update_query(db_interface.query)
 
-    def __connect_select_query(self) -> tuple:
+    def __connect_select_query(self, limit:int, offset:int) -> tuple:
         """
         Select query and returh the data on list of tuples
         :param select_table:
@@ -59,7 +60,7 @@ class SelectInsertUpdateDataSQL:
                                          select_table_join_2=self.select_table_join_2,
                                          select_table_join_3=self.select_table_join_3)
         db_interface.connect_database()
-        db_interface.create_select_query()
+        db_interface.create_select_query(limit=limit, offset=offset)
         return self.conn_db.select_query(db_interface.query)
 
     def process_inject_query_using_file(self) -> None:
@@ -81,9 +82,9 @@ class SelectInsertUpdateDataSQL:
         """
         self.__connect_insert_query()
 
-    def process_select_query(self) -> tuple:
+    def process_select_query(self, limit:int, offset:int) -> tuple:
         """
         Process select query
         :return:
         """
-        return self.__connect_select_query()
+        return self.__connect_select_query(limit=limit, offset=offset)

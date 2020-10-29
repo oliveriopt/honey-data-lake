@@ -5,6 +5,7 @@ import src.pipeline.cons_pipeline as cons
 import pandas as pd
 import logging
 import dateparser
+import numpy as np
 
 pd.set_option('display.max_rows', 1000)
 pd.set_option('display.max_columns', 500)
@@ -47,9 +48,9 @@ class ProcessPipelineInjectionSelection:
                                            select_table_join_3=None)
         inject.process_update_query()
 
-    def __select_data_sql(self) -> None:
+    def __select_data_sql(self, limit: int, offset: int) -> None:
         """
-
+        Select data from sql database
         :return:
         """
 
@@ -57,9 +58,8 @@ class ProcessPipelineInjectionSelection:
                                            select_table=self.select_table, select_table_join=self.select_table_join,
                                            select_table_join_2=self.select_table_join_2,
                                            select_table_join_3=self.select_table_join_3)
-        self.result_sql = inject.process_select_query()
+        self.result_sql = inject.process_select_query(limit=limit, offset=offset)
         self.result_sql = pd.DataFrame.from_records(self.result_sql, columns=cons.columns_sql)
-        #self.result_sql = self.result_sql.sample(n=1)
 
     def __google_news_search(self, query_search: str, lang: str, location: str) -> None:
         """
@@ -73,6 +73,11 @@ class ProcessPipelineInjectionSelection:
         self.result_search_google_news = news.result
 
     def __change_none_type(self, value_change: str) -> None or str:
+        """
+        Change NONE type for blank space
+        :param value_change:
+        :return:
+        """
         if value_change is None:
             return ""
         return value_change
@@ -117,21 +122,22 @@ class ProcessPipelineInjectionSelection:
         self.result_search_google_news = self.result_search_google_news.rename(columns=cons.colummn_news_change)
         self.result_search_google_news = self.result_search_google_news[cons.columns_news_reshape]
 
-    def process_searching(self) -> None:
+    def process_searching(self, limit: int, offset: int) -> None:
         """
 
         :return:
         """
         logging.basicConfig(filename=cons.logfile, level=logging.INFO, format='%(asctime)s - %(message)s')
-        self.__select_data_sql()
+        self.__select_data_sql(limit=limit, offset=offset)
         for index, row in self.result_sql.iterrows():
             string_search, st, lang = self.__crete_string_search(index, row)
             self.__google_news_search(str(string_search), str(lang), str(st))
             print(string_search)
             self.__reshape_data(row)
-            print(self.result_search_google_news)
         self.result_news = self.result_news.append(self.result_search_google_news, ignore_index=True)
         self.result_news.reset_index(drop=True)
+        print(self.result_news)
+        #self.result_news.index = np.arange(offset, limit)
         self.result_news = self.result_news.to_records(index=True)
         self.result_news = list(self.result_news)
-        # self.__update_data_sql(cons.news_content)
+        self.__update_data_sql(cons.news_content)

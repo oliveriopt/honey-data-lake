@@ -131,3 +131,98 @@
 2020-10-28 19:59:58,251 - Connection to server successful!
 2020-10-28 19:59:58,259 - index: 0	String search: brooks  mo	State: alabama	Language: en
 2020-10-28 19:59:58,426 - index: 1	String search: byrne  bradley	State: alabama	Language: en
+2020-10-28 20:26:14,564 - Connection to server successful!
+2020-10-28 20:26:14,572 - index: 0	String search: ivey  kay	State: america	Language: en
+2020-10-28 20:26:17,862 - index: 1	String search: aderholt  robert	State: america	Language: en
+2020-10-28 20:26:18,832 - index: 2	String search: brooks  mo	State: america	Language: en
+2020-10-28 20:26:20,676 - index: 3	String search: byrne  bradley	State: america	Language: en
+2020-10-28 20:26:22,535 - index: 4	String search: jones  doug	State: america	Language: en
+2020-10-28 20:26:23,752 - index: 5	String search: palmer  gary	State: america	Language: en
+2020-10-28 20:26:25,390 - index: 6	String search: roby  martha	State: america	Language: en
+2020-10-28 20:26:27,441 - index: 7	String search: rogers  mike	State: america	Language: en
+2020-10-28 20:26:29,482 - index: 8	String search: sewell  terri	State: america	Language: en
+2020-10-28 20:26:30,713 - index: 9	String search: shelby  richard	State: america	Language: en
+2020-10-28 20:26:31,947 - Connection to server successful!
+2020-10-28 20:26:31,952 - index: 0	String search: dunleavy  mike	State: america	Language: en
+2020-10-28 20:26:37,472 - index: 1	String search: murkowski  lisa	State: america	Language: en
+2020-10-28 20:27:30,589 - Connection to server successful!
+2020-10-28 20:27:30,595 - index: 0	String search: ivey  kay	State: america	Language: en
+2020-10-28 20:27:30,751 - index: 1	String search: aderholt  robert	State: america	Language: en
+2020-10-28 20:27:30,870 - Connection to server successful!
+2020-10-28 20:27:30,883 - Connection to server successful!
+2020-10-28 20:27:30,891 - index: 0	String search: brooks  mo	State: america	Language: en
+2020-10-28 20:27:31,017 - index: 1	String search: byrne  bradley	State: america	Language: en
+2020-10-28 20:27:31,146 - Connection to server successful!
+2020-10-28 20:27:31,154 - Connection to server successful!
+2020-10-28 20:27:31,159 - index: 0	String search: jones  doug	State: america	Language: en
+2020-10-28 20:27:31,249 - index: 1	String search: palmer  gary	State: america	Language: en
+2020-10-28 20:27:31,365 - Connection to server successful!
+2020-10-28 20:30:21,087 - Connection to server successful!
+2020-10-28 20:30:21,094 - index: 0	String search: ivey  kay	State: america	Language: en
+2020-10-28 20:30:21,528 - index: 1	String search: aderholt  robert	State: america	Language: en
+2020-10-28 20:30:21,634 - Connection to server successful!
+2020-10-28 20:30:21,644 - Connection to server successful!
+2020-10-28 20:30:21,654 - index: 0	String search: brooks  mo	State: america	Language: en
+2020-10-28 20:30:21,780 - index: 1	String search: byrne  bradley	State: america	Language: en
+2020-10-28 20:30:21,919 - Connection to server successful!
+2020-10-28 20:30:21,927 - Connection to server successful!
+2020-10-28 20:30:21,933 - index: 0	String search: jones  doug	State: america	Language: en
+2020-10-28 20:30:22,030 - index: 1	String search: palmer  gary	State: america	Language: en
+2020-10-28 20:30:22,143 - Connection to server successful!
+2020-10-28 20:49:42,442 - Connection to server successful!
+2020-10-28 20:49:42,448 - index: 0	String search: ivey  kay	State: america	Language: en
+2020-10-28 20:49:42,783 - index: 1	String search: aderholt  robert	State: america	Language: en
+2020-10-28 20:49:55,469 - Connection to server successful!
+2020-10-28 20:49:55,475 - index: 0	String search: ivey  kay	State: america	Language: en
+2020-10-28 20:49:55,637 - index: 1	String search: aderholt  robert	State: america	Language: en
+2020-10-28 20:50:05,523 - Connection to server successful!
+2020-10-28 20:50:05,528 - index: 0	String search: ivey  kay	State: america	Language: en
+2020-10-28 20:50:05,705 - index: 1	String search: aderholt  robert	State: america	Language: en
+2020-10-28 21:02:27,768 - Connection to server successful!
+2020-10-28 21:02:27,775 - index: 0	String search: ivey  kay	State: america	Language: en
+2020-10-28 21:02:27,968 - index: 1	String search: aderholt  robert	State: america	Language: en
+2020-10-28 21:02:28,108 - Connection to server successful!
+2020-10-28 21:02:28,116 - Connection to server successful!
+2020-10-28 21:02:28,122 - index: 0	String search: brooks  mo	State: america	Language: en
+2020-10-28 21:02:28,393 - index: 1	String search: byrne  bradley	State: america	Language: en
+2020-10-28 21:02:28,657 - Connection to server successful!
+2020-10-28 21:02:28,665 - Connection to server successful!
+2020-10-28 21:02:28,670 - index: 0	String search: jones  doug	State: america	Language: en
+2020-10-28 21:02:28,931 - index: 1	String search: palmer  gary	State: america	Language: en
+2020-10-28 21:02:29,192 - Connection to server successful!
+2020-10-28 21:03:52,670 - Connection to server successful!
+2020-10-28 21:03:52,676 - index: 0	String search: ivey  kay	State: america	Language: en
+2020-10-28 21:03:52,861 - index: 1	String search: aderholt  robert	State: america	Language: en
+2020-10-28 21:03:52,965 - Connection to server successful!
+2020-10-28 21:03:52,973 - Connection to server successful!
+2020-10-28 21:03:52,978 - index: 0	String search: brooks  mo	State: america	Language: en
+2020-10-28 21:03:53,071 - index: 1	String search: byrne  bradley	State: america	Language: en
+2020-10-28 21:03:53,228 - Connection to server successful!
+2020-10-28 21:03:53,243 - Connection to server successful!
+2020-10-28 21:03:53,250 - index: 0	String search: jones  doug	State: america	Language: en
+2020-10-28 21:03:53,355 - index: 1	String search: palmer  gary	State: america	Language: en
+2020-10-28 21:03:53,482 - Connection to server successful!
+2020-10-28 21:14:51,004 - Connection to server successful!
+2020-10-28 21:14:51,012 - index: 0	String search: ivey  kay	State: america	Language: en
+2020-10-28 21:14:51,556 - index: 1	String search: aderholt  robert	State: america	Language: en
+2020-10-28 21:14:51,666 - Connection to server successful!
+2020-10-28 21:14:51,684 - Connection to server successful!
+2020-10-28 21:14:51,690 - index: 0	String search: brooks  mo	State: america	Language: en
+2020-10-28 21:14:51,823 - index: 1	String search: byrne  bradley	State: america	Language: en
+2020-10-28 21:14:51,929 - Connection to server successful!
+2020-10-28 21:14:51,939 - Connection to server successful!
+2020-10-28 21:14:51,944 - index: 0	String search: jones  doug	State: america	Language: en
+2020-10-28 21:14:52,089 - index: 1	String search: palmer  gary	State: america	Language: en
+2020-10-28 21:14:52,221 - Connection to server successful!
+2020-10-28 21:19:36,199 - Connection to server successful!
+2020-10-28 21:19:36,205 - index: 0	String search: ivey  kay	State: america	Language: en
+2020-10-28 21:19:36,401 - index: 1	String search: aderholt  robert	State: america	Language: en
+2020-10-28 21:19:36,500 - Connection to server successful!
+2020-10-28 21:19:36,508 - Connection to server successful!
+2020-10-28 21:19:36,514 - index: 0	String search: brooks  mo	State: america	Language: en
+2020-10-28 21:19:36,608 - index: 1	String search: byrne  bradley	State: america	Language: en
+2020-10-28 21:19:36,759 - Connection to server successful!
+2020-10-28 21:19:36,770 - Connection to server successful!
+2020-10-28 21:19:36,779 - index: 0	String search: jones  doug	State: america	Language: en
+2020-10-28 21:19:36,877 - index: 1	String search: palmer  gary	State: america	Language: en
+2020-10-28 21:19:37,005 - Connection to server successful!

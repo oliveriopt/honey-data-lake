@@ -1,17 +1,21 @@
-CREATE TABLE "newscontent" (
-	"id" serial,
-	"persona_id" integer NOT NULL,
-	"title" VARCHAR(255),
-	"media" VARCHAR(255),
-	"date" VARCHAR(255),
-	"desc" TEXT,
-	"link" TEXT,
-	"content_txt" TEXT,
-	"source_search" VARCHAR(255),
-	CONSTRAINT "newscontent_pk" PRIMARY KEY ("id")
+CREATE TABLE "newscontent"
+(
+    "id"              serial,
+    "persona_id"      integer NOT NULL,
+    "position_search" integer,
+    "title"           VARCHAR(255),
+    "media"           VARCHAR(255),
+    "date"            VARCHAR(255),
+    "desc"            TEXT,
+    "link"            TEXT,
+    "content_txt"     TEXT,
+    "source_search"   VARCHAR(255),
+    CONSTRAINT "newscontent_pk" PRIMARY KEY ("id")
 ) WITH (
-  OIDS=FALSE
-);
+      OIDS= FALSE
+    );
+
+
 
 CREATE TABLE "language"
 (
@@ -24,6 +28,8 @@ CREATE TABLE "language"
 ) WITH (
       OIDS= FALSE
     );
+
+
 
 CREATE TABLE "persona"
 (
@@ -39,6 +45,8 @@ CREATE TABLE "persona"
       OIDS= FALSE
     );
 
+
+
 CREATE TABLE "category"
 (
     "id"       serial NOT NULL,
@@ -48,16 +56,20 @@ CREATE TABLE "category"
       OIDS= FALSE
     );
 
+
+
 CREATE TABLE "geographic_zone"
 (
     "id"        integer NOT NULL,
-    "state" VARCHAR(255),
+    "continent" VARCHAR(255),
     "country"   VARCHAR(255),
-    "continent"     VARCHAR(255),
+    "state"     VARCHAR(255),
     CONSTRAINT "geographic_zone_pk" PRIMARY KEY ("id")
 ) WITH (
       OIDS= FALSE
     );
+
+
 
 ALTER TABLE "persona"
     ADD CONSTRAINT "persona_fk0" FOREIGN KEY ("id") REFERENCES "newscontent" ("persona_id");
