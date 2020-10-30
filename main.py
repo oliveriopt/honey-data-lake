@@ -1,10 +1,14 @@
 from src.pipeline.process_pipeline import ProcessPipelineInjectionSelection
+from src.pipeline.argum_parser import parse_arguments
+from pathlib import Path
 
 import src.pipeline.cons_pipeline as cons
-import sys
+import os
 import numpy as np
-import logging
 
+
+pth = os.path.abspath(os.getcwd())
+PATH = str(Path(pth))
 
 def init_table() -> None:
     """
@@ -39,12 +43,16 @@ def run_scrapper(limit: int, offset: int) -> None:
 
 
 if __name__ == '__main__':
-    if sys.argv[1] == "create":
+
+    args = parse_arguments()
+    print(args)
+    if args.action == "init":
         init_table()
-    elif sys.argv[1] == "ss":
-        list_batch = np.array_split(np.arange(int(sys.argv[3]), int(sys.argv[5])).tolist(), int(sys.argv[5]) / int(
-            sys.argv[7]))
+        pass
+    elif args.action == "scrap":
+        list_batch = np.array_split(np.arange(int(args.start_row), int(args.end_row)).tolist(),
+                                    int(args.end_row - args.start_row) / int(args.length_batch))
         print(list_batch)
         for batch in list_batch:
-            print(list(batch))
+            print(batch)
             run_scrapper(limit=len(batch), offset=batch[0])

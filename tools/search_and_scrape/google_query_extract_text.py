@@ -1,4 +1,4 @@
-from serpapi.google_search_results import GoogleSearchResults
+from tools.serpapi import GoogleSearch
 from newspaper import Article
 
 import tools.search_and_scrape.cons_google_search as cons
@@ -39,7 +39,7 @@ class GoogleNewsSearchScrap:
         Runing search news
         :return:
         """
-        client = GoogleSearchResults(self.__params)
+        client = GoogleSearch(self.__params)
         self.result = client.get_dict()['news_results']
         self.__reshape_news_result()
 
@@ -52,7 +52,7 @@ class GoogleNewsSearchScrap:
             article = Article(url, self.lang)
             article.download()
             article.parse()
-            self.text = repr(article.text)
+            self.text = repr(article.text[0:cons.max_chars])
 
         except:
             self.text = "ERROR DOWNLOAD ARTICLE"

@@ -41,7 +41,6 @@ class Connector:
             else:
                 self.__conn = psycopg2.connect(host=self.__host, port=self.__port,
                                                user=self.__user, password=self.__password)
-            print("Connection to server successful!")
             logger.info(msg="Connection to server successful!")
         except Exception as e:
             logger.error(msg="Error connecting to database:  %s" % e)

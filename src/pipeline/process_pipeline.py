@@ -1,7 +1,7 @@
 from src.pipeline.inject_data import SelectInsertUpdateDataSQL
 from tools.search_and_scrape.google_query_extract_text import GoogleNewsSearchScrap
 
-import src.pipeline.cons_pipeline as cons
+import src.pipeline.cons_pipeline_texts as cons
 import tools.search_and_scrape.cons_google_search as cons_goo_scr
 import pandas as pd
 import logging
@@ -44,7 +44,6 @@ class ProcessPipelineInjectionSelection:
         Update data to posgres database
         :return:
         """
-        print(self.result_news)
         inject = SelectInsertUpdateDataSQL(path_file=None, insert_table=table_update, insert_values=self.result_news,
                                            select_table=None, select_table_join=None, select_table_join_2=None,
                                            select_table_join_3=None)
@@ -136,11 +135,8 @@ class ProcessPipelineInjectionSelection:
             self.__reshape_data(row)
             self.result_news = self.result_news.append(self.result_search_google_news, ignore_index=True)
         self.result_news.reset_index(drop=True)
-        print(self.result_news)
-        print(offset * cons_goo_scr.number_search, (offset * cons_goo_scr.number_search) + (limit * cons_goo_scr.number_search))
         self.result_news.index = np.arange(offset * cons_goo_scr.number_search, (offset * cons_goo_scr.number_search) + (limit *
                                            cons_goo_scr.number_search))
-        print(self.result_news.index)
         self.result_news = self.result_news.to_records(index=True)
         self.result_news = list(self.result_news)
         self.__update_data_sql(cons.news_content)
