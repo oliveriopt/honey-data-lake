@@ -108,7 +108,12 @@ class ProcessPipelineInjectionSelection:
         """
         for index_date, row_date in self.result_search_google_news.iterrows():
             date = row_date["date"]
-            self.result_search_google_news.at[index_date, "date"] = dateparser.parse(date).strftime("%Y-%m-%d")
+            date = dateparser.parse(date)
+            title = row_date["title"]
+            self.result_search_google_news.at[index_date, "title"] = title[:254]
+            if date:
+                self.result_search_google_news.at[index_date, "date"] = date.strftime("%Y-%m-%d")
+
 
     def __reshape_data(self, row) -> None:
         """
@@ -135,8 +140,8 @@ class ProcessPipelineInjectionSelection:
             self.__reshape_data(row)
             self.result_news = self.result_news.append(self.result_search_google_news, ignore_index=True)
         self.result_news.reset_index(drop=True)
-        self.result_news.index = np.arange(offset * cons_goo_scr.number_search, (offset * cons_goo_scr.number_search) + (limit *
-                                           cons_goo_scr.number_search))
+        self.result_news.index = np.arange(offset * self.result_news.shape[0], (offset * self.result_news.shape[0]) + (limit *
+                                           self.result_news.shape[0]))
         self.result_news = self.result_news.to_records(index=True)
         self.result_news = list(self.result_news)
         self.__update_data_sql(cons.news_content)

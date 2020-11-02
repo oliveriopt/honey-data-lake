@@ -1,0 +1,27 @@
+2020-10-30 16:21:44,370 - Connection to server successful!
+2020-10-30 16:21:44,375 - String search: nunes  devin	State: california	Language: en
+2020-10-30 16:22:59,263 - String search: panetta  jimmy	State: california	Language: en
+2020-10-30 16:23:41,083 - Connection to server successful!
+2020-10-30 16:23:41,099 - Connection to server successful!
+2020-10-30 16:23:41,104 - String search: pelosi  nancy	State: california	Language: en
+2020-10-30 16:24:08,231 - String search: peters  scott	State: california	Language: en
+2020-10-30 16:24:45,820 - Connection to server successful!
+2020-10-30 16:24:45,839 - Connection to server successful!
+2020-10-30 16:24:45,844 - String search: porter  katie	State: california	Language: en
+2020-10-30 16:25:18,574 - String search: rouda  harley	State: california	Language: en
+2020-10-30 16:26:00,191 - Connection to server successful!
+
+servel valparaiso blanco 625 edif los heroes
+
+ERRORES  [240 241 242 243 244 245 246 247 248 249]
+[250 251 252 253 254 255]
+
+2020-10-31 15:15:41,309 - 70 71
+2020-10-31 15:15:41,309 - 72 73
+2020-10-31 15:15:41,310 - 74 75
+2020-10-31 15:16:15,609 - 70 71
+2020-10-31 15:16:15,609 - 72 73
+2020-10-31 15:16:15,609 - 74 75
+2020-10-31 15:16:55,234 - 70 71
+2020-10-31 15:16:55,241 - Connection to server successful!
+2020-10-31 15:16:55,248 - String search: nunes  devin	State: california	Language: en
